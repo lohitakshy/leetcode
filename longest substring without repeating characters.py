@@ -46,3 +46,34 @@ class Solution:
             maxle = count
                    
         return maxle
+
+      
+      
+ -------------------------------------------
+
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        result = ''
+        maxle = 0
+        if len(s) == 1:
+            return 1
+        #if len(s) == len(set(s)):
+         #   return len(s)
+            
+        for i in range(len(s)):
+            dict1 = {}
+            result = s[i]
+            dict1[s[i]] = 1
+            for j in range(i+1,len(s)):
+                if s[j] not in dict1:
+                    result+=s[j]
+                    dict1[s[j]] = 1   
+                else:
+                    break
+            if len(result) > maxle:
+                maxle = len(result)
+                result = ""
+                #print(maxle)
+                    
+            
+        return maxle
